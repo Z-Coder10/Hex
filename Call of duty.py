@@ -10,7 +10,7 @@ GREEN = pygame.Color('green')
 GOLD = pygame.Color('gold')
 Magenta = pygame.Color('magenta')
 TURQUOISE = pygame.Color('Turquoise')
-SCARLET = pygame.Color('Scarlet')
+ORANGE = pygame.Color('Orange')
 
 class Sprite(pygame.sprite.Sprite):
     def __init__(self,color,height,width):
@@ -29,6 +29,16 @@ class Sprite(pygame.sprite.Sprite):
         if self.rect.left <=0 or self.rect.right >= 500:
             self.velocity[0] = -self.velocity[0]
             boundary_hit = True
-        if self.rect.top <=0 or self.rect.bottom >=400
+        if self.rect.top <=0 or self.rect.bottom >= 400:
             self.velocity[1] = -self.velocity[1]
             boundary_hit = True
+            if boundary_hit:
+                pygame.event.post(pygame.event.Event(SPRITE_COLOR_CHANGE_EVENT, {'sprite': self}))
+                pygame.event.post(pygame.event.Event(BACKGROUND_COLOR_CHANGE_EVENT))
+    def change_color(self):
+        self.image.fill(random.choice([BLUE, RED, GREEN]))
+        
+    def change_background_color(self):
+        global bg_color 
+        bg_coloR = random.choice([GOLD, Magenta,TURQUOISE,ORANGE])
+           
