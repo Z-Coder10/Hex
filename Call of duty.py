@@ -40,5 +40,10 @@ class Sprite(pygame.sprite.Sprite):
         
     def change_background_color(self):
         global bg_color 
-        bg_coloR = random.choice([GOLD, Magenta,TURQUOISE,ORANGE])
-           
+        bg_color = random.choice([GOLD, Magenta,TURQUOISE,ORANGE])
+  
+all_sprites = pygame.sprite.Group()
+sp1 = Sprite(BLUE,50,50)
+sp1.rect.x = random.randint(0,480)
+sp1.rect.y = random.randint(0,370)
+all_sprites.add(sp1)
