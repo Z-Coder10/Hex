@@ -12,15 +12,15 @@ PLAYER_STARTX=370
 
 PLAYER_STARTY=380
 
-ENEMY_STARTY=50
+ENEMY_STARTY_MIN=50
 
-ENEMY_STARTX=150
+ENEMY_STARTY_MAX=150
 
 ENEMY_SPEEDX=4
 
 ENEMY_SPEEDY=40
 
-BULLET_SPEED=10
+BULLET_SPEED_y=10
 
 COLLISSION_DISTANCE=27
 
@@ -43,3 +43,41 @@ playerx=PLAYER_STARTX
 playery=PLAYER_STARTX
 
 playerx_change=0
+
+enemyImg = []
+
+enemyx = []
+
+enemyy = []
+
+enemyx_change = []
+
+enemyy_change = []
+
+enemy_number = 6
+
+for _i in range(enemy_number):
+    
+    enemyImg.append(pygame.image.load('enemy.png'))
+    
+    enemyx.append(random.randint(0,SCREEN_WIDTH - 64))
+   
+    enemyy.append(random.randint(ENEMY_STARTY_MIN,ENEMY_STARTY_MAX))
+    
+    enemyx_change.append(ENEMY_SPEEDX)
+    
+    enemyy_change.append(ENEMY_SPEEDX)
+    
+    enemyy_change.append(ENEMY_SPEEDY)
+    
+    bulletImg = pygame.image.load('bullet.png')
+    
+    bulletX = 0
+    
+    bulletY = PLAYER_STARTY
+    
+    bulletX_change = 0
+    
+    bulletY_change = BULLET_SPEED_y
+    
+    bullet_state = "ready"
